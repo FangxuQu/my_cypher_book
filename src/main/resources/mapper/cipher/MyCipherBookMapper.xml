@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qufangxu.mycipherbook.cipher.mapper.MyCipherBookMapper">
+
+    <insert id="save" parameterType="com.qufangxu.mycipherbook.cipher.entity.MyCipherBook">
+        insert into my_cipher_book (account,application_name,application_type,area,password,remark)
+        values (#{account},#{applicationName},#{applicationType},#{area},#{password},#{remark})
+    </insert>
+
+    <select id="getAccountPassword" parameterType="java.lang.String" resultType="com.qufangxu.mycipherbook.cipher.entity.MyCipherBook">
+        select id,account,application_name,application_type,area,password,remark from my_cipher_book A where A.account = #{account} and A.application_name = #{application}
+    </select>
+
+</mapper>
